@@ -1,0 +1,435 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("ScriptWorld Hub (iOS Supported) Script Loader", "Ocean")
+    -- MAIN
+    local Main = Window:NewTab("Main")
+    local MainSection = Main:NewSection("Main")
+
+
+    MainSection:NewButton("MoonUI", "Many hubs etc…", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/IlikeyocutgHAH/MoonUI-v13-102-SCRIPTS/main/MoonUI%20v13!"))()
+    end)
+
+    MainSection:NewToggle("Super-Human", "go fast and jump high", function(state)
+        if state then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 120
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 120
+        else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+            game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+        end
+    end)
+
+    MainSection:NewButton("iOS Fly gui", "Flying", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/VddKrfF4"))();
+    end)
+
+MainSection:NewButton("Btools scripts", "Btools (Clientsided)", function()
+
+--[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Gives your player the old system of building tools
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+]]
+
+backpack = game:GetService("Players").LocalPlayer.Backpack
+
+hammer = Instance.new("HopperBin")
+hammer.Name = "Hammer"
+hammer.BinType = 4
+hammer.Parent = backpack
+
+cloneTool = Instance.new("HopperBin")
+cloneTool.Name = "Clone"
+cloneTool.BinType = 3
+cloneTool.Parent = backpack
+
+grabTool = Instance.new("HopperBin")
+grabTool.Name = "Grab"
+grabTool.BinType = 2
+grabTool.Parent = Backpack
+end)
+
+  MainSection:NewButton("Click Teleport", "Click teleport (teleport, by clicking anywhere with the tool equipped", function()
+        mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click Teleport by scriptworld"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+    end)
+
+ --LOCAL PLAYER
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewButton("Infinity Yield (Crashes)", "Admin", function()
+              loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+  end)
+
+PlayerSection:NewButton("Float script", "Im floating!!!", function()
+              --[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Makes your character float into the air
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+Re-execute to toggle off and on.
+]]
+
+player = game:GetService("Players").LocalPlayer
+
+--Remove BodyVelocity to remove float
+if player.Character.HumanoidRootPart:FindFirstChild("WRDBodyVelocity") then
+    player.Character.HumanoidRootPart.WRDBodyVelocity:Destroy()
+--Insert BodyVelocity to add float
+else
+    local bodyVelocity = Instance.new("BodyVelocity")
+    --So we know what specific instance to remove when toggle off
+    bodyVelocity.Name = "WRDBodyVelocity"
+    bodyVelocity.Parent = player.Character.HumanoidRootPart
+end
+  end)
+
+PlayerSection:NewButton("Animation gui (r15)", "Animation gui", function()
+              loadstring(game:HttpGet('https://pastebin.com/raw/0MLPL32f'))()
+  end)
+
+PlayerSection:NewButton("No legs script", "No legs script", function()
+              --[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Removes your characters legs
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+]]
+
+character = game:GetService("Players").LocalPlayer.Character
+
+--R6 Rigs
+leftLeg = character:FindFirstChild("Left Leg")
+if leftLeg then leftLeg:Destroy() end
+rightLeg = character:FindFirstChild("Right Leg")
+if rightLeg then rightLeg:Destroy() end
+
+--R15 Rigs
+leftUpperLeg = character:FindFirstChild("LeftUpperLeg")
+if leftUpperLeg then leftUpperLeg:Destroy() end
+leftLowerLeg = character:FindFirstChild("LeftLowerLeg")
+if leftLowerLeg then leftLowerLeg:Destroy() end
+leftFoot = character:FindFirstChild("LeftFoot")
+if leftFoot then leftFoot:Destroy() end
+rightUpperLeg = character:FindFirstChild("RightUpperLeg")
+if rightUpperLeg then rightUpperLeg:Destroy() end
+rightLowerLeg = character:FindFirstChild("RightLowerLeg")
+if rightLowerLeg then rightLowerLeg:Destroy() end
+rightFoot = character:FindFirstChild("RightFoot")
+if rightFoot then rightFoot:Destroy() end
+  end)
+
+PlayerSection:NewButton("No arms script", "No arms script", function()
+              --[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Removes your characters arms
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+]]
+
+character = game:GetService("Players").LocalPlayer.Character
+
+--R6 Rigs
+leftArm = character:FindFirstChild("Left Arm")
+if leftArm then leftArm:Destroy() end
+rightArm = character:FindFirstChild("Right Arm")
+if rightArm then rightArm:Destroy() end
+
+--R15 Rigs
+leftUpperArm = character:FindFirstChild("LeftUpperArm")
+if leftUpperArm then leftUpperArm:Destroy() end
+leftLowerArm = character:FindFirstChild("LeftLowerArm")
+if leftLowerArm then leftLowerArm:Destroy() end
+leftFoot = character:FindFirstChild("LeftFoot")
+if leftFoot then leftFoot:Destroy() end
+rightUpperArm = character:FindFirstChild("RightUpperArm")
+if rightUpperArm then rightUpperArm:Destroy() end
+rightLowerArm = character:FindFirstChild("RightLowerArm")
+if rightLowerArm then rightLowerArm:Destroy() end
+rightFoot = character:FindFirstChild("RightFoot")
+if rightFoot then rightFoot:Destroy() end
+  end)
+
+PlayerSection:NewButton("invisible script", "be invisible", function()
+              --[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Makes all of your body parts invisible. Only you can see this effect.
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+
+I wrote this while off the boof and realized at the end that I'm a goof for not 
+simply looping through for BaseParts... 
+]]
+
+character = game:GetService("Players").LocalPlayer.Character
+
+character.Head.Transparency = 1
+
+--R6 Rigs
+torso = character:FindFirstChild("Torso")
+if torso then torso.Transparency = 1 end
+
+leftArm = character:FindFirstChild("Left Arm")
+if leftArm then leftArm.Transparency = 1 end
+rightArm = character:FindFirstChild("Right Arm")
+if rightArm then rightArm.Transparency = 1 end
+
+leftLeg = character:FindFirstChild("Left Leg")
+if leftLeg then leftLeg.Transparency = 1 end
+rightLeg = character:FindFirstChild("Right Leg")
+if rightLeg then rightLeg.Transparency = 1 end
+
+--R15 Rigs
+upperTorso = character:FindFirstChild("UpperTorso")
+if upperTorso then upperTorso.Transparency = 1 end
+lowerTorso = character:FindFirstChild("LowerTorso")
+if lowerTorso then lowerTorso.Transparency = 1 end
+
+leftUpperArm = character:FindFirstChild("LeftUpperArm")
+if leftUpperArm then leftUpperArm.Transparency = 1 end
+leftLowerArm = character:FindFirstChild("LeftLowerArm")
+if leftLowerArm then leftLowerArm.Transparency = 1 end
+leftFoot = character:FindFirstChild("LeftFoot")
+if leftFoot then leftFoot.Transparency = 1 end
+rightUpperArm = character:FindFirstChild("RightUpperArm")
+if rightUpperArm then rightUpperArm.Transparency = 1 end
+rightLowerArm = character:FindFirstChild("RightLowerArm")
+if rightLowerArm then rightLowerArm.Transparency = 1 end
+rightFoot = character:FindFirstChild("RightFoot")
+if rightFoot then rightFoot.Transparency = 1 end
+
+leftUpperLeg = character:FindFirstChild("LeftUpperLeg")
+if leftUpperLeg then leftUpperLeg.Transparency = 1 end
+leftLowerLeg = character:FindFirstChild("LeftLowerLeg")
+if leftLowerLeg then leftLowerLeg.Transparency = 1 end
+leftFoot = character:FindFirstChild("LeftFoot")
+if leftFoot then leftFoot.Transparency = 1 end
+rightUpperLeg = character:FindFirstChild("RightUpperLeg")
+if rightUpperLeg then rightUpperLeg.Transparency = 1 end
+rightLowerLeg = character:FindFirstChild("RightLowerLeg")
+if rightLowerLeg then rightLowerLeg.Transparency = 1 end
+rightFoot = character:FindFirstChild("RightFoot")
+if rightFoot then rightFoot.Transparency = 1 end
+  end)
+
+PlayerSection:NewButton("Tall script (r15)", "All scales need to be 100%", function()
+              --Shit ass script made by failedmite57926
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+function rm()
+	for i,v in pairs(Character:GetDescendants()) do
+		if v:IsA("BasePart") then
+			if v.Name == "Handle" or v.Name == "Head" then
+				if Character.Head:FindFirstChild("OriginalSize") then
+					Character.Head.OriginalSize:Destroy()
+				end
+			else
+				for i,cav in pairs(v:GetDescendants()) do
+					if cav:IsA("Attachment") then
+						if cav:FindFirstChild("OriginalPosition") then
+							cav.OriginalPosition:Destroy()  
+						end
+					end
+				end
+				v:FindFirstChild("OriginalSize"):Destroy()
+				if v:FindFirstChild("AvatarPartScaleType") then
+					v:FindFirstChild("AvatarPartScaleType"):Destroy()
+				end
+			end
+		end
+	end
+end
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyProportionScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyHeightScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyWidthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyDepthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("HeadScale"):Destroy()
+wait(1)
+
+  end)
+
+PlayerSection:NewButton("Night toggle script", "Night", function()
+              --[[
+A distribution of https://wearedevs.net/scripts
+Last updated August 2, 2021
+
+Description: Toggles the time of day between night and morning.
+
+Instruction: Inject this script into any game using a Lua executor like JJSploit. 
+]]
+
+lighting = game:GetService("Lighting")
+if lighting.TimeOfDay == "00:00:00" then
+    lighting.TimeOfDay = 11
+else 
+    lighting.TimeOfDay = 24
+end
+  end)
+
+    --Other
+    local Other = Window:NewTab("Games")
+    local OtherSection = Other:NewSection("Games")
+
+    OtherSection:NewButton("Faded", "Faded gui for dahood", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded/main/YesEpic", true))()
+    end)
+
+    OtherSection:NewButton("Aimlock", "Aimlock", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/1Gp9c57U"))()
+  end)
+
+OtherSection:NewButton("Shazam fly (needs keyboard)", "Shazam fly", function()
+        -- Da Hood Shazam Fly
+ 
+--// Settings
+_G.ShazamFlySpeed = 3
+ 
+--// Script
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Raycodex/Exploiting/main/Roblox/DaHoodShazamFly"), true))() 
+  end)
+
+OtherSection:NewButton("Keyboard script", "Keyboard script", function()
+        loadstring(game:HttpGet(('https://pastefy.ga/QNqILuWb/raw'),true))()
+  end)
+
+OtherSection:NewButton("ESP Script", "Highlight players", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Ghsstx/Main-Lua/main/Script"))()
+  end)
+
+OtherSection:NewButton("Headless script", "Headless being", function()
+        game.Players.LocalPlayer.Character.Head.Transparency = 1
+game.Players.LocalPlayer.Character.Head.Transparency = 1
+for i,v in pairs(game.Players.LocalPlayer.Character.Head:GetChildren()) do
+if (v:IsA("Decal")) then
+v.Transparency = 1
+end
+end
+  end)
+
+OtherSection:NewButton("Korblox script", "Needs korblox recolor", function()
+        -- hats https://www.roblox.com/catalog?Category=1&CreatorName=DuckXander&CreatorType=Group&salesTypeFilter=1
+
+-- script below
+-- | Made by GROUD
+
+function Align(Part0,Part1,Position,Angle)
+    local AlignPos = Instance.new('AlignPosition', Part1);
+    AlignPos.Parent.CanCollide = false;
+    AlignPos.ApplyAtCenterOfMass = true;
+    AlignPos.MaxForce = 67752;
+    AlignPos.MaxVelocity = math.huge/9e110;
+    AlignPos.ReactionForceEnabled = false;
+    AlignPos.Responsiveness = 200;
+    AlignPos.RigidityEnabled = false;
+    local AlignOri = Instance.new('AlignOrientation', Part1);
+    AlignOri.MaxAngularVelocity = math.huge/9e110;
+    AlignOri.MaxTorque = 67752;
+    AlignOri.PrimaryAxisOnly = false;
+    AlignOri.ReactionTorqueEnabled = false;
+    AlignOri.Responsiveness = 200;
+    AlignOri.RigidityEnabled = false;
+    local AttachmentA=Instance.new('Attachment',Part1);
+    local AttachmentB=Instance.new('Attachment',Part0);
+    AttachmentA.Name = "BruhA"
+    AttachmentB.Name = "BruhB"
+    AttachmentB.Orientation = Angle
+    AttachmentB.Position = Position
+    AlignPos.Attachment0 = AttachmentA;
+    AlignPos.Attachment1 = AttachmentB;
+    AlignOri.Attachment0 = AttachmentA;
+    AlignOri.Attachment1 = AttachmentB;
+end
+
+User = game:GetService("Players").LocalPlayer
+Body = User.Character
+Soul = Body.Humanoid
+
+FakeLeg = Body.RightUpperLeg:Clone()
+FakeLeg.Transparency = 1
+Body.RightUpperLeg:Destroy()
+FakeLeg.Parent = Body
+Body.RightUpperLeg.RightUpperLeg:Destroy()
+
+local Korblox = Body["Recolor (For Korblox)"]
+Korblox.Handle.Massless = true
+Korblox.Handle:BreakJoints()
+
+Align(FakeLeg,Korblox.Handle,Vector3.new(0,.25,0),Vector3.new(0,0,0))
+
+game:GetService("RunService").Heartbeat:connect(function(t)
+    if Korblox:FindFirstChild("Handle", true) then
+        Korblox.Handle.Velocity = Vector3.new(0, 30,0)
+    end;
+end)
+  end)
+
+OtherSection:NewButton("Brookhaven car script", "fly with your car", function()
+        loadstring (game: HttpGet ("https://pastebin.com/raw/MHE1cbWF")) ()
+  end)
+
+OtherSection:NewButton("Jenga script", "Jenga", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/Z46FpSD0"))();
+  end)
+
+OtherSection:NewButton("OP Arsenal aimlock", "aimbot", function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/2naF10wC"))()
+  end)
+
+OtherSection:NewButton("Project Mutgetsu", "PM", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/TrickyAH/Scripts/main/loader.lua"))()
+  end)
+
+OtherSection:NewButton("Bloxfruits", "script", function()
+        Loadstring(game:HttpGet("https://raw.githubusercontent.com/Augustzyzx/UraniumX/main/URANIUMMOBILE_V2.3.lua.txt", true))()
+  end)
+
+OtherSection:NewButton("MM2, Madcity, Prisonlife", "script", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/kiko200000000/idka/main/BaconDux%20Hub'),true))()
+--This is for multiple games, Madcity, prison life and murder mystery 2
+  end)
+
+OtherSection:NewButton("Faded grid (dahood)", "script", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NighterEpic/Faded-Grid/main/YesEpic", true))()
+  end)
